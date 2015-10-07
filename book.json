@@ -1,8 +1,8 @@
-{
-    "plugins": [
-        "disqus"
-    ],
-    "pluginsConfig": {
-        "shortName": "<liangdl_OMOOC>"
-    }
-}
+ {
+  "plugins": ["disqus"],  
+  "pluginsConfig": {  
+  "disqus": {  
+      "shortName": "liangdl_OMOOC"  
+          }
+      }  
+  }
