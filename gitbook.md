@@ -1,7 +1,24 @@
-# gitbookÊµÏÖÄ¿±ê
-½ÌÑ§¹ı³ÌÖĞÖ÷ÒªĞèÒª½Ó´¥µ½µÄgitbookĞèÒªÓÃµÄ¶«Î÷ÓĞ
-* ±¾µØgitbook github½¨Á¢
-* github
-* gitbook
-ĞèÒªÊµÏÖÔÚ±¾µØ±à¼­ºópushºó¾Í¿ÉÒÔgitbookºÍgithubÍ¬²½¸üĞÂ£¬Ö÷Òª»¹ÊÇÔÚ±¾µØ±à¼­È»ºóÍÆ³öÈ¥£¬ÒÔÃâ°æ±¾»ìÂÒ¡£ÕâÀï×Ô¼ºÊÔÁËºÃ¾Ã²Å·¢ÏÖ×éÀïÃæÓĞ½Ì³Ì£¬Ö»ÊÇÌ«²»ÈİÒ×·¢ÏÖÁË£¬[git_double_push](https://github.com/OpenMindClub/OMOOC.py/wiki/gitbook_double_push)
-
+# gitbookå®ç°ç›®æ ‡
+   æ•™å­¦è¿‡ç¨‹ä¸­ä¸»è¦éœ€è¦æ¥è§¦åˆ°çš„gitbookéœ€è¦ç”¨çš„ä¸œè¥¿æœ‰
+   * æœ¬åœ°gitbook githubå»ºç«‹
+   * github
+   * gitbook
+   éœ€è¦å®ç°åœ¨æœ¬åœ°ç¼–è¾‘åpushåå°±å¯ä»¥gitbookå’ŒgithubåŒæ­¥æ›´æ–°ï¼Œä¸»è¦è¿˜æ˜¯åœ¨æœ¬åœ°ç¼–è¾‘ç„¶åæ¨å‡ºå»ï¼Œä»¥å…ç‰ˆæœ¬æ··ä¹±
+    ã€‚è¿™é‡Œè‡ªå·±è¯•äº†å¥½ä¹…æ‰å‘ç°ç»„é‡Œé¢æœ‰æ•™ç¨‹ï¼Œåªæ˜¯å¤ªä¸å®¹æ˜“å‘ç°äº†ï¼Œ[git_double_push](https://github.com/OpenM    indClub/OMOOC.py/wiki/gitbook_double_push)
+   dsiqusä¹Ÿæ˜¯ä¸ªå·¨å‘ï¼Œåœ¨å®˜ç½‘æ³¨å†Œåéœ€è¦
+  1. åœ¨æœ¬åœ°å®‰è£…disquså®‰è£…ä¸ªæ’ä»¶å•¥çš„ï¼Œï¼ˆæƒ³èµ·ç»†èŠ‚å†è¡¥ä¸Šï¼‰
+  2. åœ¨disqusé¡µé¢å³ä¸Šè§’çš„é½¿è½®å¤„ç‚¹é€‰Add Disqus To Site
+  3. è®¾ç½®å¥½site name shortnameåè·³è½¬è‡³{yourshortname}.disqus.com
+  4. åœ¨{yourshortname}.disqus.comé¡µé¢è¿›å…¥edit settings->Advanced->Trusted Domainsé‡Œé¢æ·»åŠ gitbooks.ioå’Œgithub.com
+ 
+  5. åœ¨gitbookç›®å½•ä¸‹å»ºç«‹book.jsoné‡Œé¢å¡«
+  ```
+  {
+      "plugins": ["disqus"],
+      "pluginsConfig": {
+          "disqus": {
+          "shortName": "liangdl"
+          }
+      }
+  }
+  ```
