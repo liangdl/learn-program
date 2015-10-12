@@ -52,3 +52,26 @@ git remote set-url --add origin https://git.gitbook.com/username/yourrepo.git
     url = git@github.com:username/yourrepo.git
     url = https://username:apitoken@git.gitbook.com/username/yourrepo.git
 ``````
+然后想上传的时候出现
+
+```
+ Warning: Permanently added the RSA host key for IP address '192.30.252.130' to the list of known hosts.
+ ```
+ 查了下原来是要把我vps的公钥传到github上面，接下来就是在vps生成一对key，把pub传到github上面。
+
+ 1. 在vps终端输入```ssh-keygen -t rsa```出现下面内容
+
+ ```
+ ➜  .ssh  ssh-keygen -t rsa
+ Generating public/private rsa key pair.
+ Enter file in which to save the key (/root/.ssh/id_rsa):这里是问私钥保存在哪里。
+ Enter passphrase (empty for no passphrase):密语不输入也行
+ Enter same passphrase again:同上
+ Your identification has been saved in /root/.ssh/id_rsa.
+ Your public key has been saved in /root/.ssh/id_rsa.pub.
+ The key fingerprint is:
+ XXXXXX
+ ```
+  2. 输入.ssh目录下执行```cat  id_rsa.pub```查看公钥，并复制下来
+  3. 在[https://github.com/settings/ssh](http://https://github.com/settings/ssh)里面添加刚刚复制下来的公钥
+  4. ok 再push一次试试。
