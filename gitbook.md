@@ -1,18 +1,37 @@
-# gitbook实现目标
-   教学过程中主要需要接触到的gitbook需要用的东西有
-   * 本地gitbook github建立
-   * github
-   * gitbook
-   需要实现在本地编辑后push后就可以gitbook和github同步更新，主要还是在本地编辑然后推出去，以免版本混乱
-    。这里自己试了好久才发现组里面有教程，只是太不容易发现了，[git_double_push](https://github.com/OpenM    indClub/OMOOC.py/wiki/gitbook_double_push)
-   dsiqus也是个巨坑，在官网注册后需要
-  1. 在本地安装disqus安装个插件啥的，（想起细节再补上）
+# gitbook折腾笔记
+   如果不是需要在本地实现gitbook服务的话（如输出epub\mobi\pdf格式）本地编辑过程中完全不需要安装gitbook和nodejs以及插件，只需要在仓库下的.git/config里添加gitbook的仓库地址即可实现在本地编辑同时推送至gitbook和github。如果有冲突的话估计是远程仓库里面的版本和本地版本相冲突。
+   由于我之前在gitbook上面写了一部分了，为了减少出问题的可能性，先把gitbook里面的数据倒过去github,让两边的内容一样。
+1. 在书籍的详细页面点右下角的settings->Github->Export to GitHub里面很简单的，看着向导即可，记得第三步选public
+2. 在本地clone github上的repo。
+
+  ``````
+  git clone [your github repo address]
+  ``````
+3. 编辑.git/config 添加gitbook远程仓库地址
+在config里面的[remote "origin"]添加gitbook的仓库
+``````
+[remote "origin"]
+    url = https://github.com/username/yourrepo.git
+    # 照着上面那行添加gitbook仓库
+    url = https://git.gitbook.com/username/youtrepo.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+``````
+
+或者在命令行执行
+
+``````
+git remote set-url --add origin https://git.gitbook.com/username/yourrepo.git
+``````
+
+这样以后每次push的时候就可以同时推送到github和gitbook
+4. 添加disqus插件
+  1. dsiqus也是个巨坑，先在官网注册
   2. 在disqus页面右上角的齿轮处点选Add Disqus To Site
   3. 设置好site name shortname后跳转至{yourshortname}.disqus.com
   4. 在{yourshortname}.disqus.com页面进入edit settings->Advanced->Trusted Domains里面添加gitbooks.io和github.com
- 
   5. 在gitbook目录下建立book.json里面填
-  ```
+
+```
   {
       "plugins": ["disqus"],
       "pluginsConfig": {
@@ -21,4 +40,15 @@
           }
       }
   }
-  ```
+```
+  6. Done！编辑完推送即可！
+### 无需每次push都输入帐号密码
+后每次push都要输入github和gitbook帐号密码，照着下面步骤设置就不用设置帐号密码了。github提供https和ssh方式访问仓库，我们需要把访问仓库方式改为ssh方式。
+* 修改.git/config里面的url
+``````
+    url = https://github.com/username/yourrepo.git
+    url = https://git.gitbook.com/username/youtrepo.git
+    #改为
+    url = git@github.com:username/yourrepo.git
+    url = https://username:apitoken@git.gitbook.com/username/yourrepo.git
+``````
