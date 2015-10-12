@@ -14,3 +14,5 @@ set termencoding=utf-8
 set encoding=prc
 ```
 * oh-my-zsh 在putty下安装[这个字体](https://github.com/andreberg/Meslo-Font/downloads)可以看到字符
+# 好用的插件及配置[查看这里](http://matrix-lisp.github.io/blog/2014/01/01/macosx-program-tools/)
+
