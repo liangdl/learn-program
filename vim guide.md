@@ -68,3 +68,5 @@ vimtutor
 
 ### 其他 \ 未分类
 % 查找配对的括号
+
+spf13 vim keys with nerdtree
